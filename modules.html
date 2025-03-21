@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Reservation System - Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="../../Images/logo.png" alt="Dashboard Logo" class="logo-img">
+           Modules Management</div>
+        <nav>
+            <a href="../Dashboard/index.html" class="nav-item"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="../Books/books.html" class="nav-item"><i class="fas fa-book"></i> Books</a>
+            <a href="../Uniforms/uniforms.html" class="nav-item"><i class="fas fa-tshirt"></i> Uniforms</a>
+            <a href="../Modules/modules.html" class="nav-item active"><i class="fas fa-file-alt"></i> Modules</a>
+            <a href="../Students/student.html" class="nav-item"><i class="fas fa-user-graduate"></i> Students</a>
+            <a href="#" class="nav-item"><i class="fas fa-clock"></i> Reservations</a>
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Modules Management    </h1>
+            <button class="btn btn-primary" id="addModuleBtn">+ Add Modules</button>
+        </div>
+        
+        <div class="table-container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filter-department">Department:</label>
+                    <select id="filter-department" class="form-control">
+                        <option value="">All Departments</option>
+                        <option value="CITE">CITE</option>
+                        <option value="CAHS">CAHS</option>
+                        <option value="CAS">CAS</option>
+                        <option value="CEA">CEA</option>
+                        <option value="CELA">CELA</option>
+                        <option value="CCJE">CCJE</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search Module By Department...">
+                </div>
+            </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Preview</th>
+                        <th>Module Name</th>
+                        <th>Semester</th>
+                        <th>Department</th>
+                        <th>Course</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                        </tr>
+                </thead>
+                <tbody id="moduleTableBody">
+                    <!-- Data will be populated from the database -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <!-- Module Modal -->
+    <div id="moduleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add / Edit Module</h2>
+                <span class="close-btn" id="closeModuleModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="moduleForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="moduleName">Module Name</label>
+                            <input type="text" id="moduleName" name="moduelName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="semester">Semester</label>
+                            <select id="semester" name="semester" class="form-control" required>
+                                <option value="">Select Semester</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" name="department" class="form-control" required>
+                                <option value="">Select Department</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Course</label>
+                            <select id="course" name="course" class="form-control">
+                                <option value="">Select Course</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="moduleImage">Image</label>
+                            <input type="file" id="moduleImage" name="moduleImage" class="form-control" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" class="form-control" required>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelModuleBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
